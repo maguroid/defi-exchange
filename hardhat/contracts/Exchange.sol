@@ -92,10 +92,7 @@ contract Exchange is ERC20 {
         ERC20(cryptoDevTokenAddress).transfer(msg.sender, tokensBought);
     }
 
-    function cryptoDevTokenToEth(uint256 _tokensSold, uint256 _minEth)
-        public
-        payable
-    {
+    function cryptoDevTokenToEth(uint256 _tokensSold, uint256 _minEth) public {
         uint256 tokenReserve = getReserve();
         uint256 ethBought = getAmountOfTokens(
             _tokensSold,
