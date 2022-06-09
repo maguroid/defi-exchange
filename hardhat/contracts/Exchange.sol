@@ -100,6 +100,11 @@ contract Exchange is ERC20 {
             address(this).balance
         );
         require(ethBought >= _minEth, "insufficient balance");
+        ERC20(cryptoDevTokenAddress).transferFrom(
+            msg.sender,
+            address(this),
+            _tokensSold
+        );
         payable(msg.sender).transfer(ethBought);
     }
 }
